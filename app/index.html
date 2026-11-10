@@ -11,7 +11,7 @@
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: faixa de asfalto no topo (cabeçalho + destaque), conteúdo em superfície clara, placas reais como peças-chave */
 :root{
@@ -298,6 +298,111 @@ main{padding-block:28px 64px}
 #pro-slot{display:flex}
 footer.foot{border-top:1px solid var(--line);padding-block:22px;color:var(--muted);font-size:13px}
 @media (prefers-reduced-motion:no-preference){.opt,.chip,.sign,.mod,.sim{transition:border-color .15s,background .15s}}
+
+/* ===== Visual profissional (sobrepõe o tema anterior) ===== */
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --sunk:#EEF2F7; --ink:#0B1D30; --muted:#5D6D80; --line:#E2E7EE;
+  --accent:#F5B800; --accent-ink:#8A6400; --on-accent:#0B1D30;
+  --road:#0D2742; --road-2:#123459; --road-ink:#FFFFFF; --road-muted:#B7C6D7;
+  --ok:#138A43; --ok-bg:#E6F5EC; --bad:#C93A2E; --bad-bg:#FCEBEA; --info:#1D5FAF; --info-bg:#E7EFFA;
+  --cta:#138A43; --cta-d:#0E6F35;
+  --f-display:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --f-body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --r:14px; --shadow:0 1px 2px rgba(11,29,48,.05),0 6px 18px rgba(11,29,48,.06);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1420; --surface:#121E2C; --sunk:#1A2838; --ink:#E9EEF4; --muted:#9DADBF; --line:#243447;
+  --accent:#F5BF1F; --accent-ink:#F5BF1F; --on-accent:#0B1D30;
+  --road:#081422; --road-2:#12263D; --road-ink:#FFFFFF; --road-muted:#9DADBF;
+  --ok:#4CC383; --ok-bg:#12301F; --bad:#F2716A; --bad-bg:#3B1D1B; --info:#86B2F0; --info-bg:#1A2840;
+  --cta:#1FA155; --cta-d:#188A48; --shadow:none}}
+:root[data-theme="dark"]{
+  --bg:#0B1420; --surface:#121E2C; --sunk:#1A2838; --ink:#E9EEF4; --muted:#9DADBF; --line:#243447;
+  --accent:#F5BF1F; --accent-ink:#F5BF1F; --on-accent:#0B1D30;
+  --road:#081422; --road-2:#12263D; --road-ink:#FFFFFF; --road-muted:#9DADBF;
+  --ok:#4CC383; --ok-bg:#12301F; --bad:#F2716A; --bad-bg:#3B1D1B; --info:#86B2F0; --info-bg:#1A2840;
+  --cta:#1FA155; --cta-d:#188A48; --shadow:none}
+body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;text-transform:none;letter-spacing:-.02em}
+h3{font-size:18px;font-weight:700}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--ok)}
+.num{font-variant-numeric:tabular-nums}
+
+/* cabeçalho */
+header.top{box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.top-in{padding-block:12px}
+.brand b{font-size:19px;font-weight:800;letter-spacing:-.01em;text-transform:none}
+.brand svg{width:30px;height:30px}
+nav.tabs{gap:2px}
+nav.tabs a{font-size:14.5px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--road-muted);padding:8px 12px;border-radius:8px}
+nav.tabs a:hover{background:rgba(255,255,255,.08);color:#fff}
+nav.tabs a[aria-current="page"]{background:rgba(245,184,0,.16);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
+.lane{height:3px;background:var(--accent)}
+.lane::after{display:none}
+@media (max-width:640px){nav.tabs a{font-size:14px;padding:7px 10px}}
+
+/* botões */
+.btn{font-weight:700;font-size:15.5px;text-transform:none;letter-spacing:0;border-radius:10px;padding:12px 20px;line-height:1.2;transition:background .15s,border-color .15s}
+.btn-p{background:var(--cta);color:#fff}
+.btn-p:hover{background:var(--cta-d);filter:none}
+.btn-g{background:var(--surface)}
+.btn-sm{font-size:14px;padding:8px 14px}
+
+/* destaque da página inicial */
+.hero{border-radius:18px;background:radial-gradient(900px 400px at 90% -20%,#1C4A7A 0%,transparent 60%),var(--road)}
+.hero h1{font-size:clamp(30px,5vw,50px);font-weight:800;text-transform:none;letter-spacing:-.025em;line-height:1.08}
+.hero p.lead{font-size:17px;color:var(--road-muted)}
+.hero .facts b{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.hero .facts span{font-size:12.5px;text-transform:none;letter-spacing:0}
+.hero .post{display:none}
+.hero .btn-p{box-shadow:0 6px 16px rgba(19,138,67,.3)}
+
+/* painéis e cartões */
+.panel,.mod,.lesson,.qcard,.kpis{border-radius:var(--r);box-shadow:var(--shadow)}
+.panel{padding:24px}
+.kpi b{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.step .n{font-size:15px;line-height:1;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--road);color:#fff}
+.step h3{font-size:17px}
+.mod h3{font-size:18px}
+.mod:hover{border-color:#B9C6D6;transform:translateY(-1px)}
+.mod{transition:border-color .15s,transform .15s}
+.bar i{background:var(--ok)}
+.tip b{text-transform:none;letter-spacing:0;font-size:14px;font-weight:700}
+.tbl th{text-transform:none;letter-spacing:0;font-size:13.5px;font-weight:700}
+.tbl td.n{font-size:15px;font-weight:700}
+.sign code{font-size:12.5px;letter-spacing:0}
+.gh{text-transform:none;letter-spacing:-.01em;font-size:17px;font-weight:800}
+.gh2 span,.gh span{font-size:13.5px}
+.sim b{text-transform:none;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.lesson>header h2{text-transform:none}
+
+/* prova */
+.exam-top h2{font-size:clamp(22px,3vw,28px)}
+.clock{font-size:24px;font-weight:800;border-radius:10px;padding:6px 14px;letter-spacing:-.01em}
+.qmeta .tag{text-transform:none;letter-spacing:0;font-size:13px;font-weight:700;color:var(--accent-ink);background:rgba(245,184,0,.14);padding:3px 10px;border-radius:999px}
+.qtext{font-size:clamp(17px,2.2vw,20px);font-weight:700;line-height:1.45}
+.opt{border-radius:12px}
+.opt .l{font-size:15px;font-weight:700;border-radius:9px}
+.grid30 button{font-size:14px;font-weight:700;border-radius:8px}
+.result-hero .score{font-size:clamp(56px,10vw,96px);letter-spacing:-.04em}
+.result-hero .st{text-transform:none;font-size:18px;letter-spacing:0;padding:6px 14px;border-radius:999px}
+
+/* bloqueio e preço */
+.lockbox{border-radius:18px}
+.lockbox h2{font-size:clamp(22px,3.4vw,30px)}
+.price{font-size:42px;letter-spacing:-.03em}
+
+.hero .eyebrow{color:var(--accent)}
+@media (max-width:560px){
+  .hero-in{padding:26px 20px 24px;gap:8px}
+  .hero .facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:6px 18px}
+  .hero .facts b{font-size:24px}
+  .hero .facts span{font-size:11.5px}
+  .hero .cta{display:grid;grid-template-columns:1fr}
+  .hero .cta .btn{width:100%}
+  .hero-signs{display:none}
+}
 </style>
 
 <header class="top">
