@@ -11,7 +11,7 @@
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
 /* Layout: faixa de asfalto no topo (cabeçalho + destaque), conteúdo em superfície clara, placas reais como peças-chave */
 :root{
@@ -404,6 +404,73 @@ nav.tabs a[aria-current="page"]{background:rgba(245,184,0,.16);color:var(--accen
   .hero-signs{display:none}
 }
 .sim.hard{border-left:4px solid var(--bad)}
+
+/* ===== Estilo "apostila": combina com a página de vendas ===== */
+:root{
+  --bg:#FBFAF6; --surface:#FFFFFF; --sunk:#F3F0E8; --ink:#1C1B19; --muted:#6A665E; --line:#E4DFD3;
+  --accent:#F2B705; --accent-ink:#7A5A00; --on-accent:#1C1B19;
+  --road:#FFFFFF; --road-2:#F3F0E8; --road-ink:#1C1B19; --road-muted:#6A665E;
+  --ok:#1C7A3E; --ok-bg:#EEF6F0; --bad:#B3362B; --bad-bg:#FBEFEC; --info:#1A4E96; --info-bg:#EAF0F8;
+  --cta:#1C7A3E; --cta-d:#156331;
+  --f-display:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-body:"Source Sans 3",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --r:6px; --shadow:none;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171614; --surface:#201F1C; --sunk:#2A2825; --ink:#EEEAE2; --muted:#ABA598; --line:#38352F;
+  --accent:#F2B705; --accent-ink:#F2C94C; --on-accent:#1C1B19;
+  --road:#201F1C; --road-2:#2A2825; --road-ink:#EEEAE2; --road-muted:#ABA598;
+  --ok:#5CC285; --ok-bg:#16301F; --bad:#EE7B70; --bad-bg:#3A1F1C; --info:#8DB4EE; --info-bg:#1C2738;
+  --cta:#2A9150; --cta-d:#237D44}}
+:root[data-theme="dark"]{
+  --bg:#171614; --surface:#201F1C; --sunk:#2A2825; --ink:#EEEAE2; --muted:#ABA598; --line:#38352F;
+  --accent:#F2B705; --accent-ink:#F2C94C; --on-accent:#1C1B19;
+  --road:#201F1C; --road-2:#2A2825; --road-ink:#EEEAE2; --road-muted:#ABA598;
+  --ok:#5CC285; --ok-bg:#16301F; --bad:#EE7B70; --bad-bg:#3A1F1C; --info:#8DB4EE; --info-bg:#1C2738;
+  --cta:#2A9150; --cta-d:#237D44}
+body{font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.005em}
+h2{font-weight:700}
+.eyebrow{font-family:var(--f-body);text-transform:none;letter-spacing:0;font-size:14.5px;font-weight:600;color:var(--muted)}
+/* cabeçalho branco */
+header.top{background:var(--road);border-bottom:1px solid var(--line);box-shadow:none}
+.lane{display:none}
+.brand b{font-family:var(--f-display);font-size:20px;color:var(--ink)}
+.brand b span,.brand span{color:var(--ink)}
+nav.tabs a{color:var(--muted);font-family:var(--f-body);font-size:15.5px;font-weight:600;border-radius:4px}
+nav.tabs a:hover{background:var(--sunk);color:var(--ink)}
+nav.tabs a[aria-current="page"]{background:transparent;color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent);border-radius:0}
+.status-pro,.pill.pro{background:var(--ok-bg);color:var(--ok)}
+/* botões */
+.btn{font-family:var(--f-body);font-size:16px;border-radius:6px}
+.btn-p{background:var(--cta);color:#fff;border-bottom:3px solid var(--cta-d)}
+.btn-p:hover{background:var(--cta-d)}
+.btn-g{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+/* abertura da página inicial: papel, sem degradê */
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:6px;color:var(--text)}
+.hero h1{font-family:var(--f-display);color:var(--ink);font-weight:700;letter-spacing:-.01em;font-size:clamp(30px,5vw,46px)}
+.hero p.lead{color:var(--muted)}
+.hero .eyebrow{color:var(--muted)}
+.hero .facts b{font-family:var(--f-display);color:var(--ink)}
+.hero .facts span{color:var(--muted)}
+.hero .btn-p{box-shadow:none}
+.hero .btn-g,.hero .btn:not(.btn-p){background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.hero-signs{opacity:.95}
+/* cartões e painéis mais sóbrios */
+.panel,.mod,.lesson,.qcard,.kpis,.sim,.sign,.lockbox{border-radius:6px;box-shadow:none}
+.mod:hover{transform:none;border-color:#B9B09C}
+.step .n{background:var(--ink);color:var(--surface);font-family:var(--f-display)}
+.kpi b,.sim b,.gh,.result-hero .score,.clock,.price{font-family:var(--f-display)}
+.qmeta .tag{background:var(--sunk);color:var(--muted)}
+.tip{border-left-color:var(--accent)}
+.result-hero{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.result-hero .score{color:var(--ink)}
+.result-hero p,.result-hero span{color:var(--muted)}
+.lockbox{background:var(--surface);color:var(--text);border:2px solid var(--ink)}
+.lockbox h2,.lockbox .price{color:var(--ink)}
+.sim.hard{border-left:4px solid var(--bad)}
+.hero h1 em,.hero h1 span,.hero h1 i{color:var(--ink);font-style:normal;background:linear-gradient(transparent 62%,#FFE27A 62%)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero h1 em,:root:not([data-theme="light"]) .hero h1 span{background:linear-gradient(transparent 62%,#6B5410 62%)}}
 </style>
 
 <header class="top">
